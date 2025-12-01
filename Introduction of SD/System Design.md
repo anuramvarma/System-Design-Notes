@@ -38,4 +38,94 @@ On a high level, system design revolves around answering these 10 big questions:
 9. **Observability and Monitoring:** How do we monitor system health and diagnose issues in production?
 10. **Compliance and Privacy:** Are we complying with relevant laws and regulations (e.g., GDPR, HIPAA)?
 
-![[Pasted image 20251201162845.png]]
+![[Key Components of a System.png]]
+
+A typical software system can be broken down into several key components:
+
+- **Client/Frontend:** The part of the system that users interact with directly (e.g., web browsers, mobile apps). It is responsible for displaying information, collecting user input, and communicating with the backend.
+- **Server/Backend:** The backend handles the core functionality of the system. It processes incoming requests, executes business logic, interacts with databases or services, and sends responses back to the client.
+- **Database/Storage:** This component is responsible for storing and managing data. It can take various forms, including relational databases (SQL), non-relational stores (NoSQL), in-memory caches, or distributed object storage systems, depending on the needs of the application.
+- **Networking Layer:** This includes components like load balancers, APIs, and communication protocols that ensure reliable and efficient interaction between different parts of the system.
+- **Third-party Services:** These are external APIs or platforms that extend the system’s capabilities. Common examples include payment processors, email or SMS notification services, authentication providers, analytics tools, and cloud-based AI services.
+
+# 4. The Process of System Design
+
+Designing a system is not a one-size-fits-all approach. It’s a step-by-step process that starts with understanding the requirements and ends with a detailed blueprint.
+
+Here are the key steps:
+
+### Step 1: **Requirements Gathering**
+
+Every design starts with a conversation. Before drawing diagrams or choosing technologies, focus on understanding what the system needs to do.
+
+Ask questions like:
+
+- What are the **functional requirements** (core features and workflows)?
+- What are the **non-functional requirements** (scalability, availability, latency, consistency)?
+- Who are the users, and how many are expected initially and at scale?
+- What’s the expected **data volume** and **traffic pattern**?
+- Are there any **constraints** (e.g., specific technologies, budgets, or compliance rules)
+
+### Step 2: **Back-of-the-Envelope Estimation**
+
+Next, estimate the **scale** of your system. Approximate numbers give you a sense of what you’re designing for.
+
+Estimate:
+
+- Data size (storage requirements)
+- Queries per second (QPS) or requests per second (RPS)
+- Bandwidth needs
+- Number of servers or instances required
+
+These rough calculations help guide architectural decisions and ensure your design is grounded in realistic expectations.
+
+### Step 3: **High-Level Design (HLD)**
+
+Now that you understand what you’re building and how big it needs to be, start visualizing the system’s **core components** and how they interact.
+Define:
+- The main modules and services
+- Data flow between them
+- External dependencies (e.g., third-party APIs, external databases)
+
+At this stage, you’re sketching the **architecture blueprint,** a bird’s-eye view of the system.
+
+### Step 4: **Data Model / API Design**
+
+Once the architecture is clear, move closer to the data and interfaces.
+
+- Choose the right **database type(s)** — relational, NoSQL, time-series, etc.
+- Define **schemas, tables, and relationships** to support your use cases.
+- Design **APIs** for interaction between services (e.g., `POST /tweet`, `GET /timeline`).
+
+### Step 5: **Detailed Design / Deep Dive**
+
+Zoom into each component and define:
+
+- Internal logic, caching, and concurrency handling
+- Scaling strategies (horizontal vs vertical scaling)
+- Replication, partitioning, and fault tolerance
+
+This is also where you address **non-functional requirements (NFRs)** like availability, reliability, and latency.
+
+In other words, you go from _what_ the system does to _how_ it does it.
+
+### Step 6: **Identify Bottlenecks and Trade-offs**
+
+No system is perfect. Every choice has trade-offs.
+
+Ask yourself:
+
+- Where could the system break under high load?
+- What are the **single points of failure**?
+- Can caching or replication help reduce pressure?
+- Is it okay to choose **eventual consistency** for higher availability?
+
+A strong design doesn’t eliminate trade-offs, it makes them **explicit** and **justifiable**.
+
+### **Step 7: Review, Explain, and Iterate**
+
+Finally, step back and evaluate. Explain your design decisions clearly—why you made certain choices and how they meet the requirements.
+
+Be open to feedback, iterate on weak spots, and refine your design.
+
+You don’t need to get everything perfect on the first try. What matters is your ability to **adapt, refine, and evolve** the design as you uncover new insights or constraints.
