@@ -69,13 +69,72 @@ Describes how the system will be hosted and accessed, including:
 ---
 ### Purpose and Characteristics of High-Level Design
 
-The purpose of this High-Level Design (HLD) is to add the necessary detailed description to represent a suitable model. 
-This is designed to help with operational requirements and will help to understand how the modules interact. 
-Basically, HLD is a technical representation of functional requirements and the flow of information across components.
-Characteristics of high-level design include
+- The purpose of this High-Level Design (HLD) is to add the necessary detailed description to represent a suitable model. 
+- This is designed to help with operational requirements and will help to understand how the modules interact. 
+- Basically, HLD is a technical representation of functional requirements and the flow of information across components.
+#### Characteristics of high-level design include
 - A diagram representing each design aspect is included in the HLD (which is based on business requirements and anticipated results).
 - Description of hardware, software interfaces, and also user interfaces.
 - The workflow of the user's typical process is detailed, along with performance specifications.
 
 **How HLD is Different from LLD :**
-High-level design, or HLD, is a general system design where we do tradeoffs between different frameworks, components, and different databases, and we choose the best considering what the business needs and how the system should work, both in terms of functional and non-functional aspects.
+- High-level design, or HLD, is a general system design where we do tradeoffs between different frameworks, components, and different databases, and we choose the best considering what the business needs and how the system should work, both in terms of functional and non-functional aspects.
+- Whereas LLD (low-level design) translates the HLD into smaller and more specific details, it includes class diagrams, methods, data structures, and algorithms, focusing on how each part will be implemented.
+### ✅ HLD Examples
+
+#### **1. Designing WhatsApp – HLD**
+- Client → Server architecture  
+- Components:
+  - Messaging Service  
+  - Notification Service  
+  - User Service  
+  - Media Storage  
+  - Database cluster  
+- Data flow:
+  - Message → Queue → Chat Service → Database  
+- Tech choices:
+  - NoSQL for chat storage  
+  - CDN for image delivery  
+  - Load Balancer for scaling  
+
+---
+
+#### **2. E-commerce System – HLD**
+Components:
+- User Service  
+- Product Service  
+- Cart Service  
+- Payment Gateway  
+- Order Service  
+- Delivery Service  
+- Recommendation Engine  
+
+Includes:
+- Architecture diagram  
+- API gateway  
+- Database selection (SQL for orders, NoSQL for product catalog)  
+
+---
+
+#### **3. Streaming Platform (Netflix) – HLD**
+- Video Streaming Service  
+- Metadata Service  
+- CDN for video delivery  
+- Encoding Service  
+- User Authentication  
+- Adaptive bitrate algorithm  
+- Distributed database  
+
+---
+
+#### **4. Hospital Appointment System – HLD (Your project example)**
+Modules:
+- Patient Login Service  
+- Doctor Management  
+- Appointment Booking  
+- Notifications  
+- Medical Records  
+- Admin Portal  
+
+Data flow:
+- Patient → API → Appointment Service → DB → SMS/Email Notification  
