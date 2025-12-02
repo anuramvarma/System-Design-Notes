@@ -53,12 +53,14 @@
             "id": "6fd9b6e02dbe603a",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Introduction of SD/Diagrams/Key Components of a System.png"
+                "file": "Introduction of SD/Low Level Design (LLD).md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Key Components of a System"
+              "icon": "lucide-file",
+              "title": "Low Level Design (LLD)"
             }
           }
         ],
@@ -226,13 +228,16 @@
   },
   "active": "6fd9b6e02dbe603a",
   "lastOpenFiles": [
+    "Introduction of SD/High Level Design (HLD).md",
+    "PDFs/High Level Design (HLD).pdf",
+    "PDFs",
+    "New folder",
+    "Introduction of SD/Diagrams/Key Components of a System.png",
     "Introduction of SD/Diagrams/HLD Image.png",
     "Introduction of SD/System Design.md",
     "Introduction of SD/More About System Design.md",
     "Introduction of SD/Low Level Design (LLD).md",
-    "Introduction of SD/High Level Design (HLD).md",
     "Untitled.base",
-    "Introduction of SD/Diagrams/Key Components of a System.png",
     "Untitled",
     "Welcome.md",
     "Pasted image 20251201164824.png",
