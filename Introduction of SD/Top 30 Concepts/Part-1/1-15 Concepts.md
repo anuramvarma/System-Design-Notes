@@ -69,4 +69,95 @@ Whenever a client communicates with a server, there’s always some delay. One o
 - This round-trip delay is called **latency**—the total time it takes for data to travel between the client and the server. High latency can make applications feel slow and unresponsive.
 - One way to **reduce latency** is by deploying our service across **multiple data centers worldwide**.
 - This way, users can connect to the **nearest** server instead of waiting for data to travel across the globe.
+---
+## 6. **HTTP/HTTPS**
 
+Every time you visit a website, your browser and the server communicate using a set of rules called **HTTP (Hypertext Transfer Protocol)**.
+
+That’s why most URLs start with `http://` or its secure version, `https://`.
+
+[
+![](https://substackcdn.com/image/fetch/$s_!8BgK!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46796792-f8b5-4e13-b4c2-6920b3d6e0e7_1942x1170.png)
+]
+
+Here’s how it works:
+- The **client** sends a request to the server. This request includes a **header** (containing details like the request type, browser type, and cookies) and sometimes a **request body** (which carries additional data, like form inputs).
+- The **server** processes the request and responds with an **HTTP response**—either returning the requested data or an error message if something goes wrong.
+HTTP has a major security flaw, it **sends data in plain text**. This is a serious problem, especially for sensitive information like passwords, credit card details, and personal data.
+
+That’s why modern websites use **HTTPS (Hypertext Transfer Protocol Secure)** instead. HTTPS encrypts all data using **SSL/TLS,** ensuring that even if someone intercepts the request, they can’t read or alter it.
+
+But clients and servers don’t directly exchange raw HTTP requests and response.
+
+HTTP is just a **protocol** for transferring data but it doesn’t define:
+- How requests should be structured
+- What format responses should be in
+- or how different clients should interact with the server.
+This is where **APIs (or Application Programming Interfaces)** come in.
+
+---
+
+## 7. **APIs**
+
+Think of an API as a **middleman** that allows clients (like web and mobile apps) to communicate with servers without worrying about low-level details.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!EH_B!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0c3a0e69-9134-4bd9-9d42-a898bc838e32_1574x504.png)
+]
+Almost every digital service you use—social media, e-commerce, online banking, ride-hailing apps—is built on APIs working together behind the scenes.
+Here’s how it typically works:
+1. A **client** sends a request to an API.
+2. The **API**, hosted on a server, processes the request, interacts with databases or other services, and prepares a response.
+3. The **API sends back the response** in a structured format, usually **JSON** or **XML**, which the client understands and can display.
+APIs provide a **layer of abstraction**—the client doesn’t need to know **how** the server processes the request, only that it **returns the expected data**.
+---
+## 8. **Rest API**
+Among the different API styles, **REST (Representational State Transfer)** is the most widely used.
+A **REST API** follows a set of rules that define how clients and servers communicate over HTTP in a structured way.
+[
+![](https://substackcdn.com/image/fetch/$s_!HBtO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5c704568-18c9-48e5-ba45-f8e6e1e25a6b_1554x896.png)
+]
+Rest is:
+- **Stateless:** Every request is independent; the server doesn’t store client state.
+- **Resource-Based:** Everything is treated as a resource (e.g., /users, /orders, /products).
+- **Uses Standard HTTP Methods:** Clients interact with resources using **HTTP methods** like:
+    - **GET** → Retrieves data (e.g., fetching a user profile).
+    - **POST** → Creates new data (e.g., adding a new user).
+    - **PUT/PATCH** → Updates existing data (e.g., changing user settings).
+    - **DELETE** → Removes data (e.g., deleting an account).
+REST APIs are great because they’re **simple, scalable, and easy to cache**, but they have **limitations**, especially when dealing with complex data retrieval.
+
+REST endpoints often return **more data than needed**, leading to inefficient network usage. If an API doesn’t return related data, the client may need to **make multiple requests** to retrieve all required information.
+
+To address these challenges, GraphQL was introduced in 2015 by Facebook.
+
+---
+## 9. GraphQL
+
+Unlike REST, which forces clients to retrieve **fixed sets of data**, **GraphQL** lets clients **ask for exactly what they need—nothing more, nothing less**.
+With a REST API, if you need a user details, user profile details along with their recent posts, you might have to **make multiple requests** to different endpoints:
+1. `GET /api/users/123` → fetch user details
+2. `GET /api/users/123/profile` → fetch user profile
+3. `GET /api/users/123/posts` → fetch user’s posts
+With GraphQL, you can **combine those requests into one** and fetch exactly the data you need in a single query:
+[
+![](https://substackcdn.com/image/fetch/$s_!s0a7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5b40446b-9156-4e7f-9107-654235bb1e53_2138x1806.png)
+]
+The **server responds with only the requested fields**, reducing unnecessary data transfer and improving efficiency.
+
+However, GraphQL also comes with trade-offs—it **requires more processing on the server side** and isn’t as easy to cache as REST.
+
+---
+
+## 10. Databases
+- If our application deals with **small amounts of data**, we could store it **in memory**.
+- But modern applications handle **massive volumes of data**—far more than what memory can efficiently handle.
+- That’s why we need a **dedicated server for storing and managing data**—a **database**.
+- A database is the backbone of any application. It ensures that data is stored, retrieved, and managed efficiently while keeping it secure, consistent, and durable.
+- When a client requests to **store** or **retrieve** data, the **server communicates with the database**, fetches the required information, and returns it to the client.
+[
+![](https://substackcdn.com/image/fetch/$s_!Xis-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57b338e3-3cc2-4bcf-86e4-0aa42cc2c2de_1060x884.png)
+]
+But not all databases are the same. 
+Different applications have different **scalability, performance, and consistency** requirements, which is choosing the right type of database is important.
